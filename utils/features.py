@@ -34,12 +34,12 @@ def hex_to_rgb(hex_color):
     lv = len(hex_color)
     return tuple(int(hex_color[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
-# Prepare color dictionary for KDTree
-names = list(color_dict.values())
-rgb_values = [hex_to_rgb(hex_color) for hex_color in color_dict.keys()]
+    # Prepare color dictionary for KDTree
+    names = list(color_dict.values())
+    rgb_values = [hex_to_rgb(hex_color) for hex_color in color_dict.keys()]
 
-# Create KDTree
-kdt_db = KDTree(rgb_values)
+    # Create KDTree
+    kdt_db = KDTree(rgb_values)
 
 # Vectorized approach to convert RGB to names
 def convert_rgb_to_names(rgb_array):
@@ -74,6 +74,8 @@ def color_distrib(image):
 
 import numpy as np
 
+def bbox_area(bbox_data):
+    return (bbox_data[3]-bbox_data[1]) * (bbox_data[2]-bbox_data[0])
 
 def gabor(sigma, theta, Lambda, psi, gamma):
     """Gabor feature extraction."""
