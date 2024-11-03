@@ -11,8 +11,7 @@ def contrast(image):
                   image[..., 2] * b_coeff)
     return gray_image.std()
 
-
-
+'''
 # Approximate RGB values for each category
 color_dict = {
     "#000000": "black",  # Black
@@ -27,6 +26,8 @@ color_dict = {
     "#FFC0CB": "pink",   # Pink
     "#A52A2A": "brown"   # Brown
 }
+
+'''
 
 # Convert hex to RGB
 def hex_to_rgb(hex_color):
@@ -75,6 +76,7 @@ def color_distrib(image):
 import numpy as np
 
 def bbox_area(bbox_data):
+    print(bbox_data)
     return (bbox_data[3]-bbox_data[1]) * (bbox_data[2]-bbox_data[0])
 
 def gabor(sigma, theta, Lambda, psi, gamma):
